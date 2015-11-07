@@ -4,6 +4,7 @@
 
 const program = require('commander');
 const pkg = require('../package.json');
+const R = require('ramda');
 
 program
   .version(pkg.version)
@@ -14,9 +15,7 @@ program
   .option('--no-live-reload', 'disable live reloading (auto refresh browser when file changes)')
   .parse(process.argv);
 
-require('../lib')({
-  bundle: program.bundle,
-  targetDir: program.targetDir,
-  openBrowser: program.openBrowser,
-  liveReload: program.liveReload,
-});
+R.compose(
+  require('../lib'),
+  R.pick(['bundle', 'targetDir', 'openBrowser', 'liveReload'])
+)(program);
