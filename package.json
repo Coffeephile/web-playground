@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "codecov.io": "^0.1.6",
-    "eslint": "^1.5.1",
+    "eslint": "^1.9.0",
     "eslint-plugin-jasmine": "^1.4.0",
     "jest-cli": "^0.7.0"
   }

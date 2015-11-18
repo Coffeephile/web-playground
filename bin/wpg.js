@@ -15,7 +15,6 @@ program
   .option('--no-live-reload', 'disable live reloading (auto refresh browser when file changes)')
   .parse(process.argv);
 
-R.compose(
-  require('../lib'),
-  R.pick(['bundle', 'targetDir', 'openBrowser', 'liveReload'])
-)(program);
+const pickOpts = R.pick(['bundle', 'targetDir', 'openBrowser', 'liveReload']);
+
+R.compose(require('../lib'), pickOpts)(program);
